@@ -1,4 +1,5 @@
 ﻿using Canducci.Excel.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -111,6 +112,20 @@ namespace Canducci.Excel
             return stream.ToArray();
         }
         #endregion IEnumerableType
+
+        public static string ToValue(this ContentTypeExcel value)           
+        {
+            ContentTypeAttribute result = (value
+                .GetType()
+                .GetField(Enum.GetName(typeof(ContentTypeExcel), value))
+                .GetCustomAttributes(true)
+                .FirstOrDefault()) as ContentTypeAttribute;
+            if (result != null)
+            {
+                return result.Value;
+            }                
+            return default(string);
+        }
     }
 
     internal static class FabricListToExcel<T>

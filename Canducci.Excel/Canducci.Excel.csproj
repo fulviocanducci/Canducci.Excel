@@ -8,8 +8,9 @@
     <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
     <Version>1.1.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>Excel Plan</PackageTags>
-    <PackageReleaseNotes>Update Version 4.0, 4.6 e NETSTANDART</PackageReleaseNotes>
+    <PackageTags>Excel spreadsheet</PackageTags>
+    <PackageReleaseNotes>Update Version 4.0, 4.6 e netstandard2.0</PackageReleaseNotes>
+    <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
   </PropertyGroup>
 
   <ItemGroup>

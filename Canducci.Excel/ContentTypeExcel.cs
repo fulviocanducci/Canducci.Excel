@@ -1,5 +1,4 @@
-﻿using System;
-namespace Canducci.Excel
+﻿namespace Canducci.Excel
 {
     public enum ContentTypeExcel
     {

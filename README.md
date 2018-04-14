@@ -168,7 +168,7 @@ public FileContentResult CreateExcel()
     }           
     
     //The browser will download the file
-    return File(fileByte, ContentTypeExcel.xlsx);
+    return File(fileByte, ContentTypeExcel.Xlsx.ToValue(), "file.xlsx");
 
 }
 
@@ -207,7 +207,7 @@ public FileContentResult CreateExcel1()
     }
 
     //The browser will download the file
-    return File(fileByte, ContentTypeExcel.xlsx);
+    return File(fileByte, ContentTypeExcel.Xlsx.ToValue(), "file.xlsx");
 
 }
 ```

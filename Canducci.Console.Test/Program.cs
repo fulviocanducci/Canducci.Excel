@@ -6,13 +6,17 @@ namespace Canducci.Console.Test
     {
         static void Main(string[] args)
         {
-            int[] inteiros = new int[5]
-            {
-                1,2,3,4,5
-            };
-            var headerCollection = HeaderCollection.Create();
-            headerCollection.Add(Header.Create("Numeros",1));
-            inteiros.ToExcelSaveAs("Inteiros.xlsx", headerCollection);
+            //int[] inteiros = new int[5]
+            //{
+            //    1,2,3,4,5
+            //};
+            //var headerCollection = HeaderCollection.Create();
+            //headerCollection.Add(Header.Create("Numeros",1));
+            //inteiros.ToExcelSaveAs("Inteiros.xlsx", headerCollection);
+
+            var a = ContentTypeExcel.Xls.ToValue();
+            var b = ContentTypeExcel.Xlsx.ToValue();
+            
 
             System.Console.WriteLine("Hello World!");
         }
