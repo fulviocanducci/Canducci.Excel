@@ -1,10 +1,9 @@
 ## Canducci EXCEL 
 
-#### (version: 1.0.1)
-
 [![Canducci Excel](http://i666.photobucket.com/albums/vv25/netdragoon/1446163380_excel_zps5lhqezet.png)](https://www.nuget.org/packages/Canducci.Excel/)
 
 [![NuGet](https://img.shields.io/nuget/v/Canducci.Excel.svg?style=plastic&label=version)](https://www.nuget.org/packages/Canducci.Excel/)
+[![NuGet](https://img.shields.io/nuget/dt/Canducci.Excel.svg)](https://www.nuget.org/packages/Canducci.Excel/)
 
 ### Classes
 
@@ -14,18 +13,18 @@ __1) Interfaces__
 - `IHeaderCollection`
 - `IListToExcel`
 
-__2) Classes Concretas__
+__2) Class__
 
 - `Header`
 - `HeaderCollection`
 - `ListToExcel`
 
-__3) Metodos Extensivos para__ `IEnumerable`, `IEnumerable<T>`, `IQueryable` e `IQueryable<T>`
+__3) Extension method to__ `IEnumerable`, `IEnumerable<T>`, `IQueryable` e `IQueryable<T>`
 
 - `bool ToExcelSaveAs<T>`
 - `byte[] ToExcelByte<T>`
 
-## Instalação do Pacote (NUGET)
+## Package Installation (NUGET)
 
 ```Csharp
 
@@ -33,39 +32,38 @@ PM> Install-Package Canducci.Excel
 
 ```
 
-## Como utilizar?
+## How to use?
 
 Declare o namespace `using Canducci.Excel;` 
 
-## Array Simples
+## Array
 
 ```Csharp
-//Configurando o cabeçalho
+//Setting the header
 HeaderCollection headerData = new HeaderCollection();
-headerData.Add(new Header("Datas", 1));
+headerData.Add(new Header("DateCreated", 1));
 
-//Array Simples de Datas
+//Array
 var n = new DateTime[] { DateTime.Now.Date.AddDays(-15), DateTime.Now.Date.AddDays(-16) };
 
-//Usando o método extensivo para gerar o arquivo e gravar em disco.
+//Using the extensive method to generate the file and write to disk.
 n.ToExcelSaveAs("Result\\DatasSimples.xlsx", headerData);
 
 ```
 
-## Array Bidimensional
+## Array two-dimensional
 
 ```Csharp
 
-//Array Bidimensional
 int[,] c = new int[2,2];
 c[0, 0] = 1; c[0, 1] = 2;
 c[1, 0] = 3; c[1, 1] = 4;
 
-//Configurando o cabeçalho
+//Setting the header
 IHeaderCollection headersArrayBi = new HeaderCollection();
 headersArrayBi.Add(2, "Col-");
 
-//Usando o método extensivo para gerar o arquivo e gravar em disco.
+//Using the extensive method to generate the file and write to disk.
 c.ToExcelSaveAs<int[,]>("Result\\ArrayBi2Dimensioanl.xlsx", headersArrayBi);
 
 ```
@@ -74,7 +72,7 @@ c.ToExcelSaveAs<int[,]>("Result\\ArrayBi2Dimensioanl.xlsx", headersArrayBi);
 
 ```Csharp
 
-//Configurando o cabeçalho
+//Setting the header
 HeaderCollection headers = new HeaderCollection();                  
 headers.Add(new Header("Id", 1));
 headers.Add(new Header("Nome", 2));
@@ -82,7 +80,7 @@ headers.Add(new Header("Valor", 3));
 headers.Add(new Header("Data de Validade", 4));
 headers.Add(new Header("Hora Stamp", 5));
 
-//Criando manualmente uma Lista tipada
+//Manually creating a typed list
 IList<Test> tests = new List<Test>();
 tests.Add(new Test() { Id = 1, Nome = "Test 1", Valor = 10M, 
             Data = DateTime.Now.Date, Time = DateTime.Now.TimeOfDay });
@@ -111,8 +109,6 @@ tests.ToExcelSaveAs("Result\\List.xlsx", headers);
 __Simples Console ou Desktop__
 
 ```Csharp
-
-//Classe Contexto do Entity Framework
 using (AdventureWorks2014Entities db = new AdventureWorks2014Entities())
 {
 
@@ -121,12 +117,11 @@ using (AdventureWorks2014Entities db = new AdventureWorks2014Entities())
             .AsNoTracking()
             .AsQueryable();
     
-    //Configurando o cabeçalho
+    //Setting the header
     IHeaderCollection headerEF = new HeaderCollection();
     headerEF.Add(new Header("Primeiro Nome", 1));
 
-    //Usando o método extensivo para gerar o arquivo e gravar em disco.
-    //Foi selecionado apenas um item da tabela o `FirstName`
+    //Using the extensive method to generate the file and write to disk.    
     Query.Select(x => x.FirstName)                    
         .Take(10)
         .ToExcelSaveAs("Result\\Forma1.xlsx", headerEF);
@@ -149,15 +144,15 @@ public FileContentResult CreateExcel()
     using (AdventureWorks2014Entities db = new AdventureWorks2014Entities())
     {
 
-        //Configurando o cabeçalho
+        //Setting the header
         IHeaderCollection headers = HeaderCollection.Create();
         headers.Add(Header.Create("Id", 1));
         headers.Add(Header.Create("Sexo", 2));
         headers.Add(Header.Create("Data", 3));
         headers.Add(Header.Create("Trabalho", 4));
 
-        //Usando o método extensivo para gerar um array de bytes em memória
-        //pelo método extensivo ToExcelByte
+        //Using the Extensive Method to Generate an Array of Bytes in Memory
+        //by the extensive method ToExcelByte
         fileByte = db.Employee
             .AsNoTracking()
             .Select(x => new
@@ -172,48 +167,46 @@ public FileContentResult CreateExcel()
 
     }           
     
-    //O navegador fará um download do arquivo 
-    //e você pode abrir no seu aplicativo Excel
+    //The browser will download the file
     return File(fileByte, ContentTypeExcel.xlsx);
 
 }
 
 ```
 
-__ASP.NET MVC - Maneira simples instânciando__ `ListToExcel`
+__ASP.NET MVC__ `ListToExcel`
 
 ```Csharp
 [Route("excel1")]
 public FileContentResult CreateExcel1()
 {
-    //Array de Bytes
+    //Array of Bytes
     byte[] fileByte = null;
 
-    //Entity Framework e MemoryStream
+    //Entity Framework and MemoryStream
     using (AdventureWorks2014Entities db = new AdventureWorks2014Entities())
     using (System.IO.MemoryStream Stream = new System.IO.MemoryStream())            
     {
-        //Configurando cabeçalho
+        //Setting the header
         IHeaderCollection Headers = HeaderCollection.Create();
         Headers.Add(Header.Create("Departamento", 1));
         Headers.Add(Header.Create("Razão Social", 2));
 
-        //Montando a Query e retornando um IQueryable
+        //Building Query and Returning an IQueryable
         IQueryable Query = db.Department.Select(x => new { x.DepartmentID, x.Name }).AsQueryable();
 
-        //Instânciando a classe ListToExcel
+        //Instantiating the ListToExcel class
         IListToExcel<Department> listDep = new ListToExcel<Department>(Query, Headers);
 
-        //SaveAs passando valores para o MemoryStream (`Stream`)
+        //SaveAs passing values ​​to the MemoryStream (`Stream`)
         listDep.SaveAs(Stream);
 
-        //Jogando valores em um Array de Bytes
+        //Assigning values ​​to Array of Bytes
         fileByte = Stream.ToArray();
 
     }
 
-    //O navegador fará um download do arquivo 
-    //e você pode abrir no seu aplicativo Excel
+    //The browser will download the file
     return File(fileByte, ContentTypeExcel.xlsx);
 
 }
@@ -250,9 +243,12 @@ protected void BtnEnviar_Click(object sender, EventArgs e)
 
 ```
 
-#### Observações:
+#### Notes:
 
-- Não é obrigatório o uso da classe `HeaderCollection`, mas, é uma forma de configuração do titulo e ordem de cada coluna. A ordem dos valores também deve seguir a mesma ordem do que foi colocado em cada titulo sempre começando do número 1 (ex. 1,2,3, sendo que menores ou igual a 0 (zero) causa um Exception (erro)).
+- 
+It is not mandatory to use the class `HeaderCollection`, 
+but it is a way of setting the title and order of each column. The order of values ​​must also follow the order of what was placed in each title always starting from number 1 (ex. 1,2,3, being less than or equal to 0 (zero) 
+causes an Exception).
 
 ___Exemplo:___
 
@@ -261,10 +257,11 @@ IHeaderCollection Headers = HeaderCollection.Create();
 Headers.Add(Header.Create("Departamento", 1));
 Headers.Add(Header.Create("Razão Social", 2));
 ```
-No exemplo acima foi criado duas colunas começando pela Departamento e a próxima Razão Social.
 
-- O arquivo gerado em Excel tem como finalidade o transporte simples de cada informação, tendo o seu tipo de cada linha e coluna correspondente ao que foi enviado. 
+In the example above, two columns were created starting with the Department and the next Social Title.
 
-- O pacote não tem formatação de layout (apesar que o titulo é centralizado por padrão e as colunas seguem a formatação de acordo com o tipo enviado), fontes, cores, etc., a preocupação dele é somente só o envio de uma informação para ser modificada em um arquivo do excel.
+- The file generated in Excel has the purpose of simple transport of each information, taking its type from each line and column corresponding to what was sent. 
 
-- O arquivo gerado é 100% compativel com ___Microsoft Office Excel___
+- The package has no layout formatting (although the title is centralized by default and the columns follow the formatting according to the type sent), fonts, colors, etc., the concern is just sending an information to be modified in an excel file.
+
+- The generated file is 100% compatible with ___Microsoft Office Excel___

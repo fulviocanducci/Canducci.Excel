@@ -10,7 +10,9 @@ namespace Canducci.Console.Test
             {
                 1,2,3,4,5
             };
-            inteiros.ToExcelSaveAs("Inteiros.xlsx");
+            var headerCollection = HeaderCollection.Create();
+            headerCollection.Add(Header.Create("Numeros",1));
+            inteiros.ToExcelSaveAs("Inteiros.xlsx", headerCollection);
 
             System.Console.WriteLine("Hello World!");
         }
