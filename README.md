@@ -177,7 +177,7 @@ public FileContentResult CreateExcel()
 __ASP.NET MVC__ `ListToExcel`
 
 ```Csharp
-[Route("excel1")]
+[Route("excel")]
 public FileContentResult CreateExcel1()
 {
     //Array of Bytes
@@ -245,12 +245,9 @@ protected void BtnEnviar_Click(object sender, EventArgs e)
 
 #### Notes:
 
-- 
-It is not mandatory to use the class `HeaderCollection`, 
-but it is a way of setting the title and order of each column. The order of values ​​must also follow the order of what was placed in each title always starting from number 1 (ex. 1,2,3, being less than or equal to 0 (zero) 
-causes an Exception).
+It is not mandatory to use the class `HeaderCollection`, but it is a way of setting the title and order of each column. The order of values ​​must also follow the order of what was placed in each title always starting from number 1 (ex. 1,2,3, being less than or equal to 0 (zero) causes an Exception).
 
-___Exemplo:___
+___Example:___
 
 ```csharp
 IHeaderCollection Headers = HeaderCollection.Create();
@@ -265,3 +262,9 @@ In the example above, two columns were created starting with the Department and 
 - The package has no layout formatting (although the title is centralized by default and the columns follow the formatting according to the type sent), fonts, colors, etc., the concern is just sending an information to be modified in an excel file.
 
 - The generated file is 100% compatible with ___Microsoft Office Excel___
+
+### Project Test
+
+- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.Test45
+- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.Test46
+- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.TestNETStandard2.0
