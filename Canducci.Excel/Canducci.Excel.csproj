@@ -6,7 +6,7 @@
     <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
     <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
     <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>Excel spreadsheet</PackageTags>
     <PackageReleaseNotes>Update Version 4.0, 4.6 e netstandard2.0</PackageReleaseNotes>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.92.1" />
+    <PackageReference Include="ClosedXML" Version="0.93.1" />
   </ItemGroup>
 
 </Project>
