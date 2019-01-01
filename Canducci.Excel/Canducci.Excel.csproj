@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net40;net46;netstandard2.0;</TargetFrameworks>
@@ -6,15 +6,15 @@
     <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
     <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
     <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>Excel spreadsheet</PackageTags>
-    <PackageReleaseNotes>Update Version 4.0, 4.6 e netstandard2.0</PackageReleaseNotes>
+    <PackageTags>Excel Spreadsheet ClosedXML https://github.com/ClosedXML/ClosedXML </PackageTags>
+    <PackageReleaseNotes>Update ClosedXML 0.94.2</PackageReleaseNotes>
     <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.93.1" />
+    <PackageReference Include="ClosedXML" Version="0.94.2" />
   </ItemGroup>
 
 </Project>
