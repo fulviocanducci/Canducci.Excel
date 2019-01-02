@@ -1,5 +1,7 @@
 ﻿using Canducci.Excel.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace Canducci.Excel
 {
     public sealed class HeaderCollection : List<IHeader>, IHeaderCollection
@@ -14,6 +16,11 @@ namespace Canducci.Excel
             }
 
             AddRange(headers);
+        }
+
+        public HeaderCollection(params IHeader[] headers)
+            :this(headers.ToList())
+        {            
         }
 
         public void Add(string title, int order) 

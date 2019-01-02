@@ -2,8 +2,8 @@
 {
     public interface IExcelTypeConfiguration
     {
-        string DateFormat { get;  }
-        string DecimalFormat { get;  }
-        IHeaderCollection Headers { get; }
+        string DateFormat { get; set; }
+        string DecimalFormat { get; set; }
+        IHeaderCollection Headers { get; set; }
     }
 }

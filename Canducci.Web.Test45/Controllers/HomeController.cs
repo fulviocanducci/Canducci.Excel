@@ -44,7 +44,7 @@ namespace Canducci.Web.Test45.Controllers
 
             byte[] ArrayOfBytes = Items.ToExcelByte();
 
-            return File(ArrayOfBytes, ContentTypeExcel.Xlsx.ToValue(), $"{System.Guid.NewGuid()}.xlsx");
+            return File(ArrayOfBytes, ContentTypeExcel.Xlsx.ToValue(), $"{Guid.NewGuid()}.xlsx");
         }
     }
 }

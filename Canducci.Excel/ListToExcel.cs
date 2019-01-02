@@ -17,7 +17,7 @@ namespace Canducci.Excel
         private string _decimalFormat;
         private IEnumerable _items;
 
-#region Load
+        #region Load
         protected void Load(IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
         {            
             _dateFormat = dateFormat;
@@ -33,28 +33,76 @@ namespace Canducci.Excel
             SetAdjustToContents();
 
         }
-#endregion Load
+        #endregion Load
 
-#region Constructors
+        #region Constructors
+
+        #region IEnumerableNoType
+        public ListToExcel(IEnumerable items, Action<IExcelTypeConfiguration> action)
+        {
+            IExcelTypeConfiguration configuration = CreateOfAction(action);
+            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+        }
+
         public ListToExcel(IEnumerable items, IExcelTypeConfiguration configuration)
         {
             Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
         }
+
         public ListToExcel(IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
         {
             Load(items, headers, dateFormat, decimalFormat);
         }
+        #endregion IEnumerableNoType
+
+        #region IEnumerableType
+        public ListToExcel(IEnumerable<T> items, Action<IExcelTypeConfiguration> action)
+        {
+            IExcelTypeConfiguration configuration = CreateOfAction(action);
+            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+        }
+
+        public ListToExcel(IEnumerable<T> items, IExcelTypeConfiguration configuration)
+        {
+            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+        }
+
         public ListToExcel(IEnumerable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
         {
             Load(items, headers, dateFormat, decimalFormat);
         }
+        #endregion IEnumerableType
+
+        #region IQueryableType
+        public ListToExcel(IQueryable<T> items, Action<IExcelTypeConfiguration> action)
+        {
+            IExcelTypeConfiguration configuration = CreateOfAction(action);
+            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+        }
+
+        public ListToExcel(IQueryable<T> items, IExcelTypeConfiguration configuration)
+        {
+            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+        }
+
         public ListToExcel(IQueryable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")            
         {
             Load(items, headers, dateFormat, decimalFormat);
         }
+        #endregion IQueryableType
+
+        #endregion
+
+        #region SetIExcelTypeConfiguration
+        internal IExcelTypeConfiguration CreateOfAction(Action<IExcelTypeConfiguration> configuration)
+        {
+            IExcelTypeConfiguration config = ExcelTypeConfiguration.Create();
+            configuration.Invoke(config);
+            return config;
+        }
 #endregion
 
-#region Configuration        
+        #region Configuration        
         private void SetAdjustToContents()
         {
             _work.Columns().AdjustToContents();            
@@ -124,9 +172,9 @@ namespace Canducci.Excel
                     }
             }            
         }
-#endregion Configuration
+        #endregion Configuration
 
-#region SetHeaders
+        #region SetHeaders
         private void SetHeadersCollection()
         {
             for (int i = 0; i < _headers.Count; i++)
@@ -160,9 +208,9 @@ namespace Canducci.Excel
                 SetHeadersDefaultModel();
             }
         }
-#endregion SetHeaders
+        #endregion SetHeaders
 
-#region SetDatas
+        #region SetDatas
         private void SetDatasInClass(ref int col, ref int row, PropertyInfo[] _infos, dynamic _item)
         {
             col = 1;
@@ -230,9 +278,9 @@ namespace Canducci.Excel
                 }
             }
         }
-#endregion SetDatas
+        #endregion SetDatas
 
-#region SaveAs
+        #region SaveAs
         public void SaveAs(string path)
         {
             _excel.SaveAs(path);                                 
@@ -241,9 +289,9 @@ namespace Canducci.Excel
         {
             _excel.SaveAs(stream);            
         }
-#endregion SaveAs
+        #endregion SaveAs
 
-#region IDisposableSupport
+        #region IDisposableSupport
         private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
@@ -256,7 +304,7 @@ namespace Canducci.Excel
                     _items = null;
                 }
 
-                _work.Dispose();
+                //_work.Dispose();
                 _excel.Dispose();
 
                 disposedValue = true;
@@ -271,7 +319,7 @@ namespace Canducci.Excel
             Dispose(true);
             // GC.SuppressFinalize(this);
         }
-#endregion IDisposableSupport
+        #endregion IDisposableSupport
 
     }
 }

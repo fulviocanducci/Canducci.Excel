@@ -6,9 +6,9 @@ namespace Canducci.Excel
         private const string Message_DataInvalid = "DateFormat invalid";
         private const string Message_DecimalInvalid = "DecimalFormat invalid";
 
-        public IHeaderCollection Headers { get; } = null;
-        public string DateFormat { get; } = "dd/MM/yyyy";
-        public string DecimalFormat { get; } = "#,##0.00"; 
+        public IHeaderCollection Headers { get; set; } = null;
+        public string DateFormat { get; set; } = "dd/MM/yyyy";
+        public string DecimalFormat { get; set; } = "#,##0.00"; 
         
         public ExcelTypeConfiguration() { }
 
