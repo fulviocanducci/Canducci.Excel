@@ -74,20 +74,20 @@ namespace Canducci.Excel
         #endregion IEnumerableType
 
         #region IQueryableType
-        public ListToExcel(IQueryable<T> items, Action<IExcelTypeConfiguration> action)
+        public ListToExcel(IQueryable<T> query, Action<IExcelTypeConfiguration> action)
         {
             IExcelTypeConfiguration configuration = CreateOfAction(action);
-            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+            Load(query, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
         }
 
-        public ListToExcel(IQueryable<T> items, IExcelTypeConfiguration configuration)
+        public ListToExcel(IQueryable<T> query, IExcelTypeConfiguration configuration)
         {
-            Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
+            Load(query, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
         }
 
-        public ListToExcel(IQueryable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")            
+        public ListToExcel(IQueryable<T> query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")            
         {
-            Load(items, headers, dateFormat, decimalFormat);
+            Load(query, headers, dateFormat, decimalFormat);
         }
         #endregion IQueryableType
 
@@ -136,7 +136,8 @@ namespace Canducci.Excel
                 case "ulong":
                     {
                         _cell.DataType = XLDataType.Number;
-                        _cell.Style.NumberFormat.SetFormat("");                        
+                        //_cell.Style.NumberFormat.SetFormat("");    
+                        _cell.Style.NumberFormat.NumberFormatId = (int)XLPredefinedFormat.Number.Integer;
                         break;
                     }
                 case "double":
@@ -153,6 +154,7 @@ namespace Canducci.Excel
                         break;
                     }
                 case "bool":
+                case "boolean":
                     {
                         _cell.DataType = XLDataType.Boolean;
                         _cell.Style.NumberFormat.SetFormat("");
@@ -166,8 +168,8 @@ namespace Canducci.Excel
                     }
                 default:
                     {
-                        _cell.DataType = XLDataType.Text;
-                        _cell.Style.NumberFormat.SetFormat("");
+                        _cell.DataType = XLDataType.Text;                        
+                        _cell.Style.NumberFormat.SetFormat("");                        
                         break;
                     }
             }            
