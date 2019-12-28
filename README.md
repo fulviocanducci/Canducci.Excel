@@ -2,6 +2,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/Canducci.Excel.svg?style=plastic&label=version)](https://www.nuget.org/packages/Canducci.Excel/)
 [![NuGet](https://img.shields.io/nuget/dt/Canducci.Excel.svg)](https://www.nuget.org/packages/Canducci.Excel/)
+[![Build Status](https://travis-ci.org/fulviocanducci/Canducci.Excel.svg?branch=master)](https://travis-ci.org/fulviocanducci/Canducci.Excel)
 
 ### Classes
 
