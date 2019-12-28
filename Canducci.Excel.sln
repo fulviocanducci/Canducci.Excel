@@ -9,8 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canducci.Console.Test", "Ca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F343AAC-159B-4A07-B5F3-2B5537C16A70}"
 	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Excel.UnitTest", "Canducci.Excel.UnitTest\Canducci.Excel.UnitTest.csproj", "{FC63FBF4-43A6-453D-8B41-EE8518AB04DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC63FBF4-43A6-453D-8B41-EE8518AB04DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC63FBF4-43A6-453D-8B41-EE8518AB04DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC63FBF4-43A6-453D-8B41-EE8518AB04DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC63FBF4-43A6-453D-8B41-EE8518AB04DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
