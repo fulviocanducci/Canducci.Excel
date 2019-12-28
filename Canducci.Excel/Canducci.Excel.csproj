@@ -2,21 +2,32 @@
 
   <PropertyGroup>
     <TargetFrameworks>net40;net46;netstandard2.0;</TargetFrameworks>
-    <PackageIconUrl>http://i666.photobucket.com/albums/vv25/netdragoon/1446163380_excel_zps5lhqezet.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
     <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
     <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
-    <Version>1.2.0</Version>
+    <Version>1.1.3.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>Excel Spreadsheet ClosedXML https://github.com/ClosedXML/ClosedXML </PackageTags>
     <PackageReleaseNotes>Update ClosedXML 0.94.2</PackageReleaseNotes>
     <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
-    <AssemblyVersion>1.3.0.0</AssemblyVersion>
-    <FileVersion>1.3.0.0</FileVersion>
+    <AssemblyVersion>1.1.3.1</AssemblyVersion>
+    <FileVersion>1.1.3.1</FileVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>732220.png</PackageIcon>
+    <Authors>Canducci</Authors>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.94.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\images\732220.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

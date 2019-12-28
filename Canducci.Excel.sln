@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canducci.Excel", "Canducci.Excel\Canducci.Excel.csproj", "{07ABDF9A-4697-4906-BC59-04EB0CAB9483}"
 EndProject
@@ -11,12 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Web.Test46", "Canducci.Web.Test46\Canducci.Web.Test46.csproj", "{680DDC7D-45EA-4AED-88A5-62BB1AA1A90A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Web.Test45", "Canducci.Web.Test45\Canducci.Web.Test45.csproj", "{A66F682E-D379-4840-B238-F167CD8C07CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Web.TestNETStandard2.0", "Canducci.Web.TestNETStandard2.0\Canducci.Web.TestNETStandard2.0.csproj", "{5888A15B-3094-439C-B3C8-5A46B8C27AEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,18 +26,6 @@ Global
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21544B94-062F-404C-B602-4A306DE38A7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{680DDC7D-45EA-4AED-88A5-62BB1AA1A90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{680DDC7D-45EA-4AED-88A5-62BB1AA1A90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{680DDC7D-45EA-4AED-88A5-62BB1AA1A90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{680DDC7D-45EA-4AED-88A5-62BB1AA1A90A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A66F682E-D379-4840-B238-F167CD8C07CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A66F682E-D379-4840-B238-F167CD8C07CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A66F682E-D379-4840-B238-F167CD8C07CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A66F682E-D379-4840-B238-F167CD8C07CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5888A15B-3094-439C-B3C8-5A46B8C27AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5888A15B-3094-439C-B3C8-5A46B8C27AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5888A15B-3094-439C-B3C8-5A46B8C27AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5888A15B-3094-439C-B3C8-5A46B8C27AEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
