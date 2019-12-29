@@ -1,60 +1,60 @@
 ﻿using Canducci.Excel.Interfaces;
 namespace Canducci.Excel
 {
-    public sealed class ExcelTypeConfiguration : IExcelTypeConfiguration
-    {
-        private const string Message_DataInvalid = "DateFormat invalid";
-        private const string Message_DecimalInvalid = "DecimalFormat invalid";
+   public sealed class ExcelTypeConfiguration : IExcelTypeConfiguration
+   {
+      private const string Message_DataInvalid = "DateFormat invalid";
+      private const string Message_DecimalInvalid = "DecimalFormat invalid";
 
-        public IHeaderCollection Headers { get; set; } = null;
-        public string DateFormat { get; set; } = "dd/MM/yyyy";
-        public string DecimalFormat { get; set; } = "#,##0.00"; 
-        
-        public ExcelTypeConfiguration() { }
+      public IHeaderCollection Headers { get; set; } = null;
+      public string DateFormat { get; set; } = "dd/MM/yyyy";
+      public string DecimalFormat { get; set; } = "#,##0.00";
 
-        public ExcelTypeConfiguration(string dateFormat, string decimalFormat = "#,##0.00")
-        {
-            if (string.IsNullOrEmpty(dateFormat))
-            {
-                throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
-            }
+      public ExcelTypeConfiguration() { }
 
-            if (string.IsNullOrEmpty(decimalFormat))
-            {
-                throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
-            }
+      public ExcelTypeConfiguration(string dateFormat, string decimalFormat = "#,##0.00")
+      {
+         if (string.IsNullOrEmpty(dateFormat))
+         {
+            throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
+         }
 
-            DateFormat = dateFormat;
-            DecimalFormat = decimalFormat;
-        }
+         if (string.IsNullOrEmpty(decimalFormat))
+         {
+            throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
+         }
 
-        public ExcelTypeConfiguration(IHeaderCollection headers) 
-            => Headers = headers ?? throw new System.ArgumentNullException(nameof(headers));
+         DateFormat = dateFormat;
+         DecimalFormat = decimalFormat;
+      }
 
-        public ExcelTypeConfiguration(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
-        {
-            if (string.IsNullOrEmpty(dateFormat))
-            {
-                throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
-            }
+      public ExcelTypeConfiguration(IHeaderCollection headers)
+          => Headers = headers ?? throw new System.ArgumentNullException(nameof(headers));
 
-            if (string.IsNullOrEmpty(decimalFormat))
-            {
-                throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
-            }
+      public ExcelTypeConfiguration(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
+      {
+         if (string.IsNullOrEmpty(dateFormat))
+         {
+            throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
+         }
 
-            Headers = headers;
-            DateFormat = dateFormat;
-            DecimalFormat = decimalFormat;
-        }
+         if (string.IsNullOrEmpty(decimalFormat))
+         {
+            throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
+         }
 
-        public static IExcelTypeConfiguration Create() 
-            => new ExcelTypeConfiguration();
+         Headers = headers;
+         DateFormat = dateFormat;
+         DecimalFormat = decimalFormat;
+      }
 
-        public static IExcelTypeConfiguration Create(IHeaderCollection headers) 
-            => new ExcelTypeConfiguration(headers);
+      public static IExcelTypeConfiguration Create()
+          => new ExcelTypeConfiguration();
 
-        public static IExcelTypeConfiguration Create(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00") 
-            => new ExcelTypeConfiguration(headers, dateFormat, decimalFormat);
-    }
+      public static IExcelTypeConfiguration Create(IHeaderCollection headers)
+          => new ExcelTypeConfiguration(headers);
+
+      public static IExcelTypeConfiguration Create(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
+          => new ExcelTypeConfiguration(headers, dateFormat, decimalFormat);
+   }
 }
