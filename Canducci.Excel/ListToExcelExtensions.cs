@@ -24,7 +24,7 @@ namespace Canducci.Excel
       {
          return SaveAs(FabricListToExcel<T>.Create(items, configuration), path);
       }
-      public static bool ToExcelSaveAs<T>(this IEnumerable items, string path, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static bool ToExcelSaveAs<T>(this IEnumerable items, string path, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return SaveAs(FabricListToExcel<T>.Create(items, headers, dateFormat, decimalFormat), path);
       }
@@ -37,7 +37,7 @@ namespace Canducci.Excel
       {
          return SaveAs(FabricListToExcel<T>.Create(items, configuration), path);
       }
-      public static bool ToExcelSaveAs<T>(this IEnumerable<T> items, string path, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static bool ToExcelSaveAs<T>(this IEnumerable<T> items, string path, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return SaveAs(FabricListToExcel<T>.Create(items, headers, dateFormat, decimalFormat), path);
       }
@@ -50,7 +50,7 @@ namespace Canducci.Excel
       {
          return SaveAs(FabricListToExcel<T>.Create(query, configuration), path);
       }
-      public static bool ToExcelSaveAs<T>(this IQueryable query, string path, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static bool ToExcelSaveAs<T>(this IQueryable query, string path, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return SaveAs(FabricListToExcel<T>.Create(query, headers, dateFormat, decimalFormat), path);
       }
@@ -63,7 +63,7 @@ namespace Canducci.Excel
       {
          return SaveAs(FabricListToExcel<T>.Create(query, configuration), path);
       }
-      public static bool ToExcelSaveAs<T>(this IQueryable<T> query, string path, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static bool ToExcelSaveAs<T>(this IQueryable<T> query, string path, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return SaveAs(FabricListToExcel<T>.Create(query, headers, dateFormat, decimalFormat), path);
       }
@@ -83,11 +83,13 @@ namespace Canducci.Excel
       {
          return ExcelByte(FabricListToExcel<T>.Create(items, configuration));
       }
+
       public static byte[] ToExcelByte<T>(this IEnumerable items, Action<IExcelTypeConfiguration> configuration)
       {
          return ExcelByte(FabricListToExcel<T>.Create(items, configuration));
       }
-      public static byte[] ToExcelByte<T>(this IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+
+      public static byte[] ToExcelByte<T>(this IEnumerable items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return ExcelByte(FabricListToExcel<T>.Create(items, headers, dateFormat, decimalFormat));
       }
@@ -100,7 +102,7 @@ namespace Canducci.Excel
       {
          return ExcelByte(FabricListToExcel<T>.Create(items, configuration));
       }
-      public static byte[] ToExcelByte<T>(this IEnumerable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static byte[] ToExcelByte<T>(this IEnumerable<T> items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return ExcelByte(FabricListToExcel<T>.Create(items, headers, dateFormat, decimalFormat));
       }
@@ -109,11 +111,13 @@ namespace Canducci.Excel
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, configuration));
       }
+
       public static byte[] ToExcelByte<T>(this IQueryable query, IExcelTypeConfiguration configuration)
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, configuration));
       }
-      public static byte[] ToExcelByte<T>(this IQueryable query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+
+      public static byte[] ToExcelByte<T>(this IQueryable query, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, headers, dateFormat, decimalFormat));
       }
@@ -122,11 +126,13 @@ namespace Canducci.Excel
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, configuration));
       }
+
       public static byte[] ToExcelByte<T>(this IQueryable<T> query, IExcelTypeConfiguration configuration)
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, configuration));
       }
-      public static byte[] ToExcelByte<T>(this IQueryable<T> query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+
+      public static byte[] ToExcelByte<T>(this IQueryable<T> query, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return ExcelByte(FabricListToExcel<T>.Create(query, headers, dateFormat, decimalFormat));
       }

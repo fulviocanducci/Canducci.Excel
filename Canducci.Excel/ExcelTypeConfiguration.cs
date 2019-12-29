@@ -3,11 +3,11 @@ namespace Canducci.Excel
 {
    public sealed class ExcelTypeConfiguration : IExcelTypeConfiguration
    {
-      private const string Message_DataInvalid = "DateFormat invalid";
-      private const string Message_DecimalInvalid = "DecimalFormat invalid";
+      private const string MessageDataInvalid = "DateFormat invalid";
+      private const string MessageDecimalInvalid = "DecimalFormat invalid";
 
-      public IHeaderCollection Headers { get; set; } = null;
-      public string DateFormat { get; set; } = "dd/MM/yyyy";
+      public HeaderCollection Headers { get; set; } = null;
+      public string DateFormat { get; set; } = "yyyy-MM-dd";
       public string DecimalFormat { get; set; } = "#,##0.00";
 
       public ExcelTypeConfiguration() { }
@@ -16,31 +16,33 @@ namespace Canducci.Excel
       {
          if (string.IsNullOrEmpty(dateFormat))
          {
-            throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
+            throw new System.ArgumentException(MessageDataInvalid, nameof(dateFormat));
          }
 
          if (string.IsNullOrEmpty(decimalFormat))
          {
-            throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
+            throw new System.ArgumentException(MessageDecimalInvalid, nameof(decimalFormat));
          }
 
          DateFormat = dateFormat;
          DecimalFormat = decimalFormat;
       }
 
-      public ExcelTypeConfiguration(IHeaderCollection headers)
-          => Headers = headers ?? throw new System.ArgumentNullException(nameof(headers));
+      public ExcelTypeConfiguration(HeaderCollection headers)
+      {
+         Headers = headers ?? throw new System.ArgumentNullException(nameof(headers));
+      }
 
-      public ExcelTypeConfiguration(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
+      public ExcelTypeConfiguration(HeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
       {
          if (string.IsNullOrEmpty(dateFormat))
          {
-            throw new System.ArgumentException(Message_DataInvalid, nameof(dateFormat));
+            throw new System.ArgumentException(MessageDataInvalid, nameof(dateFormat));
          }
 
          if (string.IsNullOrEmpty(decimalFormat))
          {
-            throw new System.ArgumentException(Message_DecimalInvalid, nameof(decimalFormat));
+            throw new System.ArgumentException(MessageDecimalInvalid, nameof(decimalFormat));
          }
 
          Headers = headers;
@@ -49,12 +51,18 @@ namespace Canducci.Excel
       }
 
       public static IExcelTypeConfiguration Create()
-          => new ExcelTypeConfiguration();
+      {
+         return new ExcelTypeConfiguration();
+      }
 
-      public static IExcelTypeConfiguration Create(IHeaderCollection headers)
-          => new ExcelTypeConfiguration(headers);
+      public static IExcelTypeConfiguration Create(HeaderCollection headers)
+      {
+         return new ExcelTypeConfiguration(headers);
+      }
 
-      public static IExcelTypeConfiguration Create(IHeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
-          => new ExcelTypeConfiguration(headers, dateFormat, decimalFormat);
+      public static IExcelTypeConfiguration Create(HeaderCollection headers, string dateFormat, string decimalFormat = "#,##0.00")
+      {
+         return new ExcelTypeConfiguration(headers, dateFormat, decimalFormat);
+      }
    }
 }

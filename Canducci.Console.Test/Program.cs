@@ -26,7 +26,7 @@ namespace Canducci.Console.Test
                 Id = 2,
                 Name = "Name 2"
             });
-            peoples.ToExcelSaveAs("Peoples.xlsx");
+            peoples.ToExcelSaveAs("Peoples.xlsx", dateFormat: @"dd/MM/yyyy hh\:mm\:ss");
             var a = ContentTypeExcel.Xls.ToValue();
             var b = ContentTypeExcel.Xlsx.ToValue();
             

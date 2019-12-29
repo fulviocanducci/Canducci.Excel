@@ -6,7 +6,7 @@ namespace Canducci.Excel.UnitTest
    public class UnitTestDefault
    {
       [TestMethod]
-      public void TestMethod1()
+      public void TestListToExcel()
       {
          IList<People> peoples = new List<People>();
          peoples.Add(new People
@@ -22,6 +22,29 @@ namespace Canducci.Excel.UnitTest
 
          byte[] peopleExcelArrayBytes = peoples.ToExcelByte();
          bool save = peoples.ToExcelSaveAs($"./{System.Guid.NewGuid().ToString()}.xlsx");
+
+         Assert.IsInstanceOfType(peopleExcelArrayBytes.GetType(), typeof(byte[]).GetType());
+         Assert.IsTrue(save);
+      }
+
+      [TestMethod]
+      public void TestListToExcelConfiguration()
+      {
+         IList<People> peoples = new List<People>();
+         peoples.Add(new People
+         {
+            Id = 1,
+            Name = "Name 1"
+         });
+         peoples.Add(new People
+         {
+            Id = 2,
+            Name = "Name 2"
+         });
+
+         ExcelTypeConfiguration config = new ExcelTypeConfiguration();         
+         byte[] peopleExcelArrayBytes = peoples.ToExcelByte();
+         bool save = peoples.ToExcelSaveAs($"./{System.Guid.NewGuid().ToString()}.xlsx", config);
 
          Assert.IsInstanceOfType(peopleExcelArrayBytes.GetType(), typeof(byte[]).GetType());
          Assert.IsTrue(save);

@@ -18,7 +18,7 @@ namespace Canducci.Excel.Internals
          return new ListToExcel<T>(items, configuration);
       }
 
-      public static IListToExcel<T> Create(IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static IListToExcel<T> Create(IEnumerable items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return new ListToExcel<T>(items, headers, dateFormat, decimalFormat);
       }
@@ -33,7 +33,7 @@ namespace Canducci.Excel.Internals
          return new ListToExcel<T>(items, configuration);
       }
 
-      public static IListToExcel<T> Create(IEnumerable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static IListToExcel<T> Create(IEnumerable<T> items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return new ListToExcel<T>(items, headers, dateFormat, decimalFormat);
       }
@@ -49,7 +49,7 @@ namespace Canducci.Excel.Internals
       {
          return new ListToExcel<T>(query, configuration);
       }
-      public static IListToExcel<T> Create(IQueryable query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static IListToExcel<T> Create(IQueryable query, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return new ListToExcel<T>(query, headers, dateFormat, decimalFormat);
       }
@@ -62,7 +62,7 @@ namespace Canducci.Excel.Internals
       {
          return new ListToExcel<T>(query, configuration);
       }
-      public static IListToExcel<T> Create(IQueryable<T> query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public static IListToExcel<T> Create(IQueryable<T> query, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          return new ListToExcel<T>(query, headers, dateFormat, decimalFormat);
       }

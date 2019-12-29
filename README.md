@@ -6,20 +6,14 @@
 ![Github Workflows](https://github.com/fulviocanducci/Canducci.Excel/workflows/.NET%20Core/badge.svg)
 
 ### Classes
-
-__1) Interfaces__
-
-- `IHeader`
-- `IHeaderCollection`
-- `IListToExcel`
-
-__2) Class__
+                 
+__1) Class__
 
 - `Header`
 - `HeaderCollection`
 - `ListToExcel`
 
-__3) Extension method to__ `IEnumerable`, `IEnumerable<T>`, `IQueryable` e `IQueryable<T>`
+__2) Extension method to__ `IEnumerable`, `IEnumerable<T>`, `IQueryable` e `IQueryable<T>`
 
 - `bool ToExcelSaveAs<T>`
 - `byte[] ToExcelByte<T>`
@@ -60,7 +54,7 @@ c[0, 0] = 1; c[0, 1] = 2;
 c[1, 0] = 3; c[1, 1] = 4;
 
 //Setting the header
-IHeaderCollection headersArrayBi = new HeaderCollection();
+HeaderCollection headersArrayBi = new HeaderCollection();
 headersArrayBi.Add(2, "Col-");
 
 //Using the extensive method to generate the file and write to disk.
@@ -118,7 +112,7 @@ using (AdventureWorks2014Entities db = new AdventureWorks2014Entities())
             .AsQueryable();
     
     //Setting the header
-    IHeaderCollection headerEF = new HeaderCollection();
+    HeaderCollection headerEF = new HeaderCollection();
     headerEF.Add(new Header("Primeiro Nome", 1));
 
     //Using the extensive method to generate the file and write to disk.    
@@ -145,7 +139,7 @@ public FileContentResult CreateExcel()
     {
 
         //Setting the header
-        IHeaderCollection headers = HeaderCollection.Create();
+        HeaderCollection headers = HeaderCollection.Create();
         headers.Add(Header.Create("Id", 1));
         headers.Add(Header.Create("Sexo", 2));
         headers.Add(Header.Create("Data", 3));
@@ -188,7 +182,7 @@ public FileContentResult CreateExcel1()
     using (System.IO.MemoryStream Stream = new System.IO.MemoryStream())            
     {
         //Setting the header
-        IHeaderCollection Headers = HeaderCollection.Create();
+        HeaderCollection Headers = HeaderCollection.Create();
         Headers.Add(Header.Create("Departamento", 1));
         Headers.Add(Header.Create("Razão Social", 2));
 
@@ -250,7 +244,7 @@ It is not mandatory to use the class `HeaderCollection`, but it is a way of sett
 ___Example:___
 
 ```csharp
-IHeaderCollection Headers = HeaderCollection.Create();
+HeaderCollection Headers = HeaderCollection.Create();
 Headers.Add(Header.Create("Departamento", 1));
 Headers.Add(Header.Create("Razão Social", 2));
 ```
@@ -262,9 +256,3 @@ In the example above, two columns were created starting with the Department and 
 - The package has no layout formatting (although the title is centralized by default and the columns follow the formatting according to the type sent), fonts, colors, etc., the concern is just sending an information to be modified in an excel file.
 
 - The generated file is 100% compatible with ___Microsoft Office Excel___
-
-### Project Test
-
-- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.Test45
-- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.Test46
-- https://github.com/fulviocanducci/Canducci.Excel/tree/master/Canducci.Web.TestNETStandard2.0

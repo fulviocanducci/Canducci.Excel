@@ -12,13 +12,13 @@ namespace Canducci.Excel
    {
       private XLWorkbook _excel;
       private IXLWorksheet _work;
-      private IHeaderCollection _headers;
+      private HeaderCollection _headers;
       private string _dateFormat;
       private string _decimalFormat;
       private IEnumerable _items;
 
       #region Load
-      protected void Load(IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      protected void Load(IEnumerable items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          _dateFormat = dateFormat;
          _decimalFormat = decimalFormat;
@@ -49,7 +49,7 @@ namespace Canducci.Excel
          Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
       }
 
-      public ListToExcel(IEnumerable items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public ListToExcel(IEnumerable items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          Load(items, headers, dateFormat, decimalFormat);
       }
@@ -67,7 +67,7 @@ namespace Canducci.Excel
          Load(items, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
       }
 
-      public ListToExcel(IEnumerable<T> items, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public ListToExcel(IEnumerable<T> items, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          Load(items, headers, dateFormat, decimalFormat);
       }
@@ -85,7 +85,7 @@ namespace Canducci.Excel
          Load(query, configuration.Headers, configuration.DateFormat, configuration.DecimalFormat);
       }
 
-      public ListToExcel(IQueryable<T> query, IHeaderCollection headers = null, string dateFormat = "dd/MM/yyyy", string decimalFormat = "#,##0.00")
+      public ListToExcel(IQueryable<T> query, HeaderCollection headers = null, string dateFormat = "yyyy-MM-dd", string decimalFormat = "#,##0.00")
       {
          Load(query, headers, dateFormat, decimalFormat);
       }
@@ -107,6 +107,7 @@ namespace Canducci.Excel
       {
          _work.Columns().AdjustToContents();
       }
+
       private void SetTypeDataAndFormatType(ref IXLCell _cell, PropertyInfo _info)
       {
          string _typeString = _info.PropertyType.IsGenericType ?
@@ -115,6 +116,7 @@ namespace Canducci.Excel
 
          SetTypeDataAndFormatType(ref _cell, _typeString);
       }
+
       private void SetTypeDataAndFormatType(ref IXLCell _cell, string typeString)
       {
 
@@ -187,6 +189,7 @@ namespace Canducci.Excel
             _cellHeader.Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
          }
       }
+
       private void SetHeadersDefaultModel()
       {
          PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
@@ -199,6 +202,7 @@ namespace Canducci.Excel
             _cell.Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
          }
       }
+
       private void SetHeaders()
       {
          if (_headers != null && _headers.Count > 0)
@@ -225,6 +229,7 @@ namespace Canducci.Excel
          }
          row++;
       }
+
       private void SetDatasInArray(ref int col, ref int row, dynamic _item)
       {
          IXLCell _cell = _work.Cell(row, col);
@@ -249,12 +254,14 @@ namespace Canducci.Excel
          row++;
          col = 1;
       }
+
       private void SetDatasInPrimitive(ref int col, ref int row, dynamic _item)
       {
          IXLCell _cell = _work.Cell(row++, col);
          _cell.Value = _item;
          SetTypeDataAndFormatType(ref _cell, _item.GetType().Name);
       }
+
       private void SetDatas()
       {
          int row = 2;

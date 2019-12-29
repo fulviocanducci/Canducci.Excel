@@ -4,6 +4,6 @@
     {
         string DateFormat { get; set; }
         string DecimalFormat { get; set; }
-        IHeaderCollection Headers { get; set; }
+        HeaderCollection Headers { get; set; }
     }
 }

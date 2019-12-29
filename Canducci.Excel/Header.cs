@@ -1,7 +1,6 @@
-﻿using Canducci.Excel.Interfaces;
-namespace Canducci.Excel
+﻿namespace Canducci.Excel
 {
-   public class Header : IHeader
+   public class Header
    {
       public string Title { get; }
       public int Order { get; }
@@ -17,7 +16,9 @@ namespace Canducci.Excel
          Order = order;
       }
 
-      public static IHeader Create(string title, int order)
-          => new Header(title, order);
+      public static Header Create(string title, int order)
+      {
+         return new Header(title, order);
+      }
    }
 }
