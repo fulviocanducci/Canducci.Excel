@@ -6,13 +6,13 @@
     <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
     <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
     <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
-    <Version>1.1.3.1</Version>
+    <Version>1.1.4.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>Excel Spreadsheet ClosedXML https://github.com/ClosedXML/ClosedXML </PackageTags>
     <PackageReleaseNotes>Update ClosedXML 0.94.2</PackageReleaseNotes>
     <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
-    <AssemblyVersion>1.1.3.1</AssemblyVersion>
-    <FileVersion>1.1.3.1</FileVersion>
+    <AssemblyVersion>1.1.4.0</AssemblyVersion>
+    <FileVersion>1.1.4.0</FileVersion>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>732220.png</PackageIcon>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.94.2" />
+    <PackageReference Include="ClosedXML" Version="0.95.3" />
   </ItemGroup>
 
   <ItemGroup>

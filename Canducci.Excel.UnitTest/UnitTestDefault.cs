@@ -30,19 +30,21 @@ namespace Canducci.Excel.UnitTest
       [TestMethod]
       public void TestListToExcelConfiguration()
       {
-         IList<People> peoples = new List<People>();
-         peoples.Add(new People
-         {
-            Id = 1,
-            Name = "Name 1"
-         });
-         peoples.Add(new People
-         {
-            Id = 2,
-            Name = "Name 2"
-         });
+            IList<People> peoples = new List<People>
+            {
+                new People
+                {
+                    Id = 1,
+                    Name = "Name 1"
+                },
+                new People
+                {
+                    Id = 2,
+                    Name = "Name 2"
+                }
+            };
 
-         ExcelTypeConfiguration config = new ExcelTypeConfiguration();         
+            ExcelTypeConfiguration config = new ExcelTypeConfiguration();         
          byte[] peopleExcelArrayBytes = peoples.ToExcelByte();
          bool save = peoples.ToExcelSaveAs($"./{System.Guid.NewGuid().ToString()}.xlsx", config);
 
