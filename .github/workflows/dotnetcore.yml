@@ -1,12 +1,12 @@
 name: .NET Core
-
-on: [push]
-
+on: 
+  workflow_dispatch:
+  push:
+    tags:
+    - v*
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
