@@ -137,7 +137,7 @@ namespace Canducci.Excel
             case "long":
             case "ulong":
                {
-                  _cell.DataType = XLDataType.Number;
+                  //_cell.DataType = XLDataType.Number;
                   //_cell.Style.NumberFormat.SetFormat("");    
                   _cell.Style.NumberFormat.NumberFormatId = (int)XLPredefinedFormat.Number.Integer;
                   break;
@@ -145,32 +145,32 @@ namespace Canducci.Excel
             case "double":
             case "decimal":
                {
-                  _cell.DataType = XLDataType.Number;
+                  //_cell.DataType = XLDataType.Number;                  
                   _cell.Style.NumberFormat.SetFormat(_decimalFormat);
                   break;
                }
             case "datetime":
                {
-                  _cell.DataType = XLDataType.DateTime;
+                  //_cell.DataType = XLDataType.DateTime;
                   _cell.Style.DateFormat.SetFormat(_dateFormat);
                   break;
                }
             case "bool":
             case "boolean":
                {
-                  _cell.DataType = XLDataType.Boolean;
+                  //_cell.DataType = XLDataType.Boolean;
                   _cell.Style.NumberFormat.SetFormat("");
                   break;
                }
             case "timespan":
                {
-                  _cell.DataType = XLDataType.TimeSpan;
+                  //_cell.DataType = XLDataType.TimeSpan;
                   _cell.Style.NumberFormat.SetFormat("");
                   break;
                }
             default:
                {
-                  _cell.DataType = XLDataType.Text;
+                  //_cell.DataType = XLDataType.Text;
                   _cell.Style.NumberFormat.SetFormat("");
                   break;
                }

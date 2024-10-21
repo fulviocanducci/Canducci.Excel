@@ -1,33 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
-    <PackageIconUrl></PackageIconUrl>
-    <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
-    <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
-    <Version>1.1.6.0</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageTags>Excel Spreadsheet ClosedXML https://github.com/ClosedXML/ClosedXML </PackageTags>
-    <PackageReleaseNotes>Update ClosedXML 0.94.2</PackageReleaseNotes>
-    <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
-    <AssemblyVersion>1.1.6.0</AssemblyVersion>
-    <FileVersion>1.1.6.0</FileVersion>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>732220.png</PackageIcon>
-    <Authors>Canducci</Authors>
-  </PropertyGroup>
+   <PropertyGroup>
+      <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
+      <PackageIconUrl></PackageIconUrl>
+      <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.Excel</PackageProjectUrl>
+      <RepositoryUrl>https://github.com/fulviocanducci/Canducci.Excel</RepositoryUrl>
+      <RepositoryType>https://github.com/fulviocanducci/Canducci.Excel</RepositoryType>
+      <Version>1.2.0.0</Version>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      <PackageTags>Excel Spreadsheet ClosedXML https://github.com/ClosedXML/ClosedXML </PackageTags>
+      <PackageReleaseNotes>Update ClosedXML 0.94.2</PackageReleaseNotes>
+      <Description>Canducci Excel Extensions Methods IQueryable and IEnumerable</Description>
+      <AssemblyVersion>1.2.0.0</AssemblyVersion>
+      <FileVersion>1.2.0.0</FileVersion>
+      <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageIcon>732220.png</PackageIcon>
+      <Authors>Canducci</Authors>      
+      <CheckEolTargetFramework>false</CheckEolTargetFramework>
+      <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.97.0" />
-  </ItemGroup>
+   <ItemGroup>
+      <PackageReference Include="ClosedXML" Version="0.104.1" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+      <PackageReference Include="System.Memory" Version="4.5.5" />
+   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\images\732220.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+   <ItemGroup>
+      <None Include="..\images\732220.png">
+         <Pack>True</Pack>
+         <PackagePath></PackagePath>
+      </None>
+   </ItemGroup>
 
 </Project>
